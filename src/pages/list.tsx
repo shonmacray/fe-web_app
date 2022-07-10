@@ -30,8 +30,6 @@ function List() {
     }
   };
 
-  const handleUpdate = (id: string) => {};
-
   return (
     <div>
       <Link to="/create" className="bg-green-400">
@@ -47,7 +45,7 @@ function List() {
             </Link>
 
             <button onClick={() => handleDeleteTodo(todo.id)}>delete</button>
-            <button onClick={() => handleUpdate(todo.id)}>update</button>
+            <Link to={`edit/${todo.id}`}>update</Link>
           </div>
         ))}
       </div>
