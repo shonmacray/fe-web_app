@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Button from "../components/Button";
 
 interface todoType {
   id: string;
@@ -31,25 +32,33 @@ function List() {
   };
 
   return (
-    <div>
-      <Link to="/create" className="bg-green-400">
-        Add Todo
-      </Link>
-      <div>
-        <p>Your todos</p>
-
-        {todos?.map((todo: todoType) => (
-          <div key={todo.id}>
-            <Link to={`todo/${todo.id}`}>
-              <p>{todo.value}</p>
-            </Link>
-
-            <button onClick={() => handleDeleteTodo(todo.id)}>delete</button>
-            <Link to={`edit/${todo.id}`}>update</Link>
-          </div>
-        ))}
+    <>
+      <div className="flex justify-between items-center py-10">
+        <p className="font-medium">Your Todos</p>
+        <Button>
+          <Link to="/create">Create New Todo</Link>
+        </Button>
       </div>
-    </div>
+
+      {todos?.map((todo: todoType) => (
+        <div
+          key={todo.id}
+          className="flex justify-between items-center px-8 border mb-5 h-20"
+        >
+          <Link to={`todo/${todo.id}`}>
+            <p>{todo.value}</p>
+          </Link>
+          <div className="space-x-5">
+            <Button color="red" onClick={() => handleDeleteTodo(todo.id)}>
+              <p>delete</p>
+            </Button>
+            <Button color="green">
+              <Link to={`edit/${todo.id}`}>update</Link>
+            </Button>
+          </div>
+        </div>
+      ))}
+    </>
   );
 }
 

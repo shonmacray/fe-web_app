@@ -7,15 +7,19 @@ import Todo from "./pages/todo";
 function App() {
   return (
     <div>
-      <p>Header</p>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<List />} />
-          <Route path="todo/:id" element={<Todo />} />
-          <Route path="create" element={<Create />} />
-          <Route path="edit/:id" element={<Edit />} />
-        </Routes>
-      </BrowserRouter>
+      <div className="h-16 bg-black flex justify-center items-center">
+        <p className="font-bold text-white">MyTodo</p>
+      </div>
+      <div className="w-[50%] mx-auto">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<List />} />
+            <Route path="todo/:id" element={<Todo />} />
+            <Route path="create" element={<Create />} />
+            <Route path="edit/:id" element={<Edit />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
     </div>
   );
 }
