@@ -30,6 +30,8 @@ function List() {
     }
   };
 
+  const handleUpdate = (id: string) => {};
+
   return (
     <div>
       <Link to="/create" className="bg-green-400">
@@ -40,9 +42,12 @@ function List() {
 
         {todos?.map((todo: todoType) => (
           <div key={todo.id}>
-            <p>{todo.value}</p>
+            <Link to={`todo/${todo.id}`}>
+              <p>{todo.value}</p>
+            </Link>
 
             <button onClick={() => handleDeleteTodo(todo.id)}>delete</button>
+            <button onClick={() => handleUpdate(todo.id)}>update</button>
           </div>
         ))}
       </div>
