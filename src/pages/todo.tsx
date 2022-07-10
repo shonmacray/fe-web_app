@@ -22,7 +22,7 @@ function Todo() {
   return (
     <div className="py-10 space-y-4">
       <p className="text-2xl">Your Todo</p>
-      <p className="border h-40 px-8 py-2">{todo}</p>
+      <p className="border px-8 py-2">{todo}</p>
     </div>
   );
 }
