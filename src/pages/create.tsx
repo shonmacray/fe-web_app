@@ -14,7 +14,7 @@ function Create() {
     const newTodo = { id: todoId, value };
     if (store) {
       const todoStore = JSON.parse(store);
-      const newStore = [...todoStore, newTodo];
+      const newStore = [newTodo, ...todoStore];
 
       localStorage.setItem("todos", JSON.stringify(newStore));
     } else {
