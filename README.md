@@ -6,11 +6,11 @@ You need to install NodeJs which comes with Npm installed
 
 ### Clone repository.
 
-use git to clone this repo to your computer and in your terminal/cmd use this command to run app
+use git to clone this repo to your computer, open the terminal/cmd in this projects directory and run:
 
 ### `npm install`
 
-Downloads project dependencies
+To Download project dependencies and then:
 
 ### `npm run start`
 
