@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Button from "../components/Button";
 
 interface todoType {
   id: string;
@@ -44,21 +45,20 @@ function Edit() {
   };
 
   return (
-    <div>
-      <p>Edit</p>
+    <div className="py-10 space-y-8">
+      <p className="text-lg">Edit Todo</p>
       <textarea
+        className="w-full h-40 border pl-5 pt-2"
         placeholder="type todo description"
         name="todo"
         value={value}
         onChange={(e) => handleChange(e.target.value)}
       />
-      <button
-        onClick={handleClick}
-        className="bg-blue-500 px-10 py-3"
-        type="submit"
-      >
-        <p className="text-white">Update Todo</p>
-      </button>
+      <div className="flex justify-end">
+        <Button onClick={handleClick}>
+          <p>Update Todo</p>
+        </Button>
+      </div>
     </div>
   );
 }

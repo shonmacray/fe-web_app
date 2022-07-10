@@ -12,7 +12,11 @@ function Button({ children, onClick, color = "blue" }: ButtonProps) {
       ? "bg-green-500"
       : "bg-blue-500";
   return (
-    <button onClick={onClick} className={`${bgColor} px-10 py-3 text-white`}>
+    <button
+      type="submit"
+      onClick={onClick}
+      className={`${bgColor} px-10 py-3 text-white`}
+    >
       {children}
     </button>
   );
