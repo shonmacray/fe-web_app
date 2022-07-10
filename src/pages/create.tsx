@@ -24,20 +24,24 @@ function Create() {
   };
 
   return (
-    <div>
+    <div className="py-10 space-y-8">
+      <p className="text-lg">Create New Todo</p>
       <textarea
-        placeholder="type todo description"
+        className="w-full h-40 border pl-5 pt-2"
+        placeholder="type todo"
         name="todo"
         value={value}
         onChange={(e) => handleChange(e.target.value)}
       />
-      <button
-        onClick={handleClick}
-        className="bg-blue-500 px-10 py-3"
-        type="submit"
-      >
-        <p className="text-white">Save Todo</p>
-      </button>
+      <div className="flex justify-end">
+        <button
+          onClick={handleClick}
+          className="bg-blue-500 px-10 py-3"
+          type="submit"
+        >
+          <p className="text-white">Save Todo</p>
+        </button>
+      </div>
     </div>
   );
 }
