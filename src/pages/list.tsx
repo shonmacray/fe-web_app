@@ -39,7 +39,11 @@ function List() {
   const currentPageData = todos
     .slice(offset, offset + PER_PAGE)
     .map((todo: todoType) => (
-      <Todo todo={todo} onDeleteTodo={(i: string) => handleDeleteTodo(i)} />
+      <Todo
+        key={todo.id}
+        todo={todo}
+        onDeleteTodo={(i: string) => handleDeleteTodo(i)}
+      />
     ));
 
   const pageCount = Math.ceil(todos.length / PER_PAGE);
@@ -57,18 +61,19 @@ function List() {
         </Button>
       </div>
       {currentPageData}
-
-      <ReactPaginate
-        previousLabel={"Previous"}
-        nextLabel={"Next"}
-        pageCount={pageCount}
-        onPageChange={handlePageClick}
-        containerClassName={"flex justify-end items-center"}
-        previousLinkClassName={"px-4 py-2 bg-gray-500 text-white"}
-        nextLinkClassName={"px-4 py-2 bg-gray-500 text-white"}
-        activeClassName={"bg-lime-500"}
-        pageClassName={"px-4 py-1 border space-x-5"}
-      />
+      {todos.length ? (
+        <ReactPaginate
+          previousLabel={"Previous"}
+          nextLabel={"Next"}
+          pageCount={pageCount}
+          onPageChange={handlePageClick}
+          containerClassName={"flex justify-end items-center"}
+          previousLinkClassName={"px-4 py-2 bg-gray-500 text-white"}
+          nextLinkClassName={"px-4 py-2 bg-gray-500 text-white"}
+          activeClassName={"bg-lime-500"}
+          pageClassName={"px-4 py-1 border space-x-5"}
+        />
+      ) : null}
     </>
   );
 }
