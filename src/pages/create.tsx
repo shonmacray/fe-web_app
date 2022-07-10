@@ -9,8 +9,17 @@ function Create() {
   };
 
   const handleClick = () => {
+    const store = localStorage.getItem("todos");
     const todoId = uuid4();
-    localStorage.setItem(todoId, value);
+    const newTodo = { id: todoId, value };
+    if (store) {
+      const todoStore = JSON.parse(store);
+      const newStore = [...todoStore, newTodo];
+
+      localStorage.setItem("todos", JSON.stringify(newStore));
+    } else {
+      localStorage.setItem("todos", JSON.stringify([newTodo]));
+    }
     setValue("");
   };
 
